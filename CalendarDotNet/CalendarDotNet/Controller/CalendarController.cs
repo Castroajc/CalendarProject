@@ -26,7 +26,7 @@ namespace CalendarDotNet.Controller
         //Called when the user clicks the previous month icon
         public void ChangeToPreviousMonth()
         {
-            //set
+            //made a temp variable, won't repeat model.Get....
             int month = model.GetMonth();
 
             if(month == 1)
@@ -42,6 +42,17 @@ namespace CalendarDotNet.Controller
         //Called when the user clicks the next month icon
         public void ChangeToNextMonth()
         {
+            //temp variable to avoid long sentences
+            int month = model.GetMonth();
+
+            if(month == 12)
+            {
+                model.SetMonth(1);
+            }
+            else
+            {
+                model.SetMonth(month + 1);
+            }
             
         }
 
