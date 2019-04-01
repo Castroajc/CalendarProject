@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarProjectTests", "Cal
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CalendarDatabase", "CalendarDatabase\CalendarDatabase.sqlproj", "{078C353A-4A77-4088-BCD5-F7F120AB7BBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCalendarDatabase", "TestCalendarDatabase\TestCalendarDatabase.csproj", "{4746B9A6-96DF-4176-BA65-5524E2E1F986}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{078C353A-4A77-4088-BCD5-F7F120AB7BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078C353A-4A77-4088-BCD5-F7F120AB7BBB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{078C353A-4A77-4088-BCD5-F7F120AB7BBB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4746B9A6-96DF-4176-BA65-5524E2E1F986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4746B9A6-96DF-4176-BA65-5524E2E1F986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4746B9A6-96DF-4176-BA65-5524E2E1F986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4746B9A6-96DF-4176-BA65-5524E2E1F986}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
