@@ -13,5 +13,6 @@ CREATE TABLE [dbo].[Table1]
     [eventDescription] VARCHAR(50) NULL, 
     [eventTitle] VARCHAR(50) NULL, 
     [startTime] INT NULL, 
-    [dayOfWeek] INT NULL
+    [dayOfWeek] INT NULL, 
+    [testField] NCHAR(10) NULL
 ) WITH (MEMORY_OPTIMIZED = ON)
