@@ -5,14 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Persist\" />
-    <Folder Include="wwwroot\" />
+    <Compile Remove="Persist\**" />
+    <Content Remove="Persist\**" />
+    <EmbeddedResource Remove="Persist\**" />
+    <None Remove="Persist\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="xunit" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\Shared\_Layout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\Shared\_ValidationScriptsPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
