@@ -2,12 +2,11 @@
 @model IndexModel
 @{
     <h2>@ViewData["Title"] Home page</h2>
-    <h3>@Model.Message</h3>
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel=" = " stylesheet" hreff="HomeStyle.css" />
+    @*<link rel="stylesheet" hreff="HomeStyle.css" /> *@
     <style>
         * {
             box-sizing: border-box;
@@ -73,6 +72,7 @@
                 list-style-type: none;
                 display: inline-block;
                 width: 13.6%;
+                height: 150px;
                 text-align: center;
                 margin-bottom: 5px;
                 font-size: 12px;
@@ -82,13 +82,18 @@
                 .days li .active {
                     padding: 5px;
                     background: #1abc9c;
-                    color: white !important
+                    color: white !important;
+                }
+                .days li .daysButton {
+                    width: 100%;
+                    height: 150px;
+                    background: #B22222;
                 }
     </style>
 </head>
 <body>
 
-    <h1>CSS Calendar</h1>
+    <h1>Individual Project Calendar</h1>
 
     <div class="month">
         <ul>
@@ -101,7 +106,7 @@
         </ul>
     </div>
 
-    <ul class="weekdays">
+    <ul class="weekdays">   @*These are the columns of the weekday names*@
         <li>Mo</li>
         <li>Tu</li>
         <li>We</li>
@@ -112,8 +117,8 @@
     </ul>
 
     <ul class="days">
-        <li>1</li>
-        <li>2</li>
+        <li><form method="post"><button type="submit" button class="daysButton" asp-page="./EditEvent">1</button></form>@*End of button,still apart of list*@</li>
+        <li><form method="post"><button type="submit" button class="daysButton" asp-page="./EditEvent">2</button></form>@*End of button, still apart of list*@</li>
         <li>3</li>
         <li>4</li>
         <li>5</li>
