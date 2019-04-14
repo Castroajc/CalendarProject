@@ -1,21 +1,65 @@
 ﻿@page
 @model CalendarDotNet.Pages.EditEventModel
-<h2>@ViewData["Title"] Day Events</h2>
-<h3>@Model.Message</h3>
+<h1>@ViewData["Title"] Day Events</h1>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="~/css/StyleSheet.css" type="text/css"/>
+    <style>
+        * {
+       
+            background-color: rebeccapurple;    
+            text-align: center;
+        }
+        body {
+            color: whitesmoke;
+            font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding-left:50px;
+            padding-right:50px;
+        }
+        #textarea{
+            background-color: rosybrown;
+            color:black;
+        }
+        #bodycenter {
+            background: #F7F3F3;
+            border: 2px solid #120000;
+            border-radius: 5px;
+            color: #000000;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            height: 350px;
+            padding: 15px 20px 15px 30px;
+        }
+
+        #eventform {
+            background-color: #CFFFE5;
+            left: 45%;
+            color:black;
+            
+            position: fixed;
+        }
+        .returnButton {
+            background-color: #1015BC;
+            color: #C6C7D8;
+            border: 2px solid #120000;
+        }
+    </style>
 </head>
 <body>
-    <p>Message that you made it</p>
-    <body-content>
-        here is some generic text
-        <p>here is some paragraph text</p>
-        <textarea>I forget what this is</textarea>
-    </body-content>
+
+    <div id="bodycenter">
+        <div id="eventform">
+            Message that you made it
+            <br />
+            here is some generic text
+            <br />
+            <textarea id="textarea">
+    I forget what this is
+    </textarea>
+        </div>
+    </div>
+    <form method="post"><button type="submit" button class="returnButton" asp-page="./Index">Return</button></form>
 </body>
 </html>

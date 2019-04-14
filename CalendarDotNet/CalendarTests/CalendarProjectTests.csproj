@@ -16,4 +16,8 @@
     <ProjectReference Include="..\CalendarDotNet\CalendarDotNet.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="fakeDataBase\" />
+  </ItemGroup>
+
 </Project>

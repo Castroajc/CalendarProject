@@ -9,10 +9,8 @@ namespace CalendarDotNet.Pages
 {
     public class EditEventModel : PageModel
     {
-        public String Message { get; set; }
         public void OnGet()
         {
-            Message = "congrats you made it";
         }
     }
 }
