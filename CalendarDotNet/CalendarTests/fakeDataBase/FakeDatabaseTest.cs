@@ -19,11 +19,12 @@ namespace CalendarProjectTests.fakeDataBase
             fake = new FakeDatabase();
         }
         [TestMethod]
-        public void AddEventTest()
+        public void UpdateEventTest()
         {
-            fake.AddEvent(2, 3, "Test Title", "Description", "3:00pm");
+            fake.UpdateEvent(1, 2, "Test Title", "Description", "3:00pm");
             List<Days> testList = fake.LoadEvent(2);
-            Assert.AreEqual(3, testList[0].GetyDayId() );
+       
+            Assert.AreEqual(1, testList[0].GetyDayId() );
             Assert.AreEqual("Test Title",testList[0].GetTitle());
             Assert.AreEqual("Description", testList[0].GetDescription());
             Assert.AreEqual("3:00pm", testList[0].GetStartTime());

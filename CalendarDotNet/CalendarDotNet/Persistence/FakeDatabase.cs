@@ -18,13 +18,6 @@ namespace CalendarDotNet.Persistence
             daysList.AddRange(InitialData.GetDays());
             monthsList.AddRange(InitialData.GetMonths());
         }
-        //will add the event into the database
-        public List<Days> AddEvent(int monthId, int dayId, string title, string description, string startTime)
-        {
-            Days tempDay = new Days(monthId, dayId, title, description, startTime);
-            daysList.Add(tempDay);
-            return daysList;
-        }
 
         public List<Days> LoadEvent(int monthId)
         {
@@ -38,6 +31,18 @@ namespace CalendarDotNet.Persistence
 
             }
             return listOfThisMonth;
+        }
+        public void UpdateEvent(int dayId, int monthId, string title, string description, string startTime)
+        {
+            foreach(Days day in daysList)
+            {
+                if(dayId == day.GetyDayId() && monthId == day.GetMonthId())
+                {
+                    day.SetTitle(title);
+                    day.SetDescription(description);
+                    day.SetStartTime(startTime);
+                }
+            }
         }
     }
 }

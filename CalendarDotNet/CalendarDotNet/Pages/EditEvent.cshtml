@@ -5,24 +5,32 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 <!DOCTYPE html>
+
+
 <html>
 <head>
+    <script runat="server">
+        void Page_Load()
+        {
+            staticDateTime.Text = DateTime.Now.ToString();
+        }
+        static string CurrentDateTime(HttpContext context){
+            return DateTime.Now.ToString();
+        }
+    </script>
     <style>
         * {
-       
-            background-color: rebeccapurple;    
+            background-color: rebeccapurple;
             text-align: center;
         }
+
         body {
             color: whitesmoke;
             font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            padding-left:50px;
-            padding-right:50px;
+            padding-left: 50px;
+            padding-right: 50px;
         }
-        #textarea{
-            background-color: rosybrown;
-            color:black;
-        }
+
         #bodycenter {
             background: #F7F3F3;
             border: 2px solid #120000;
@@ -36,10 +44,15 @@
         #eventform {
             background-color: #CFFFE5;
             left: 45%;
-            color:black;
-            
+            color: black;
             position: fixed;
         }
+
+        .textarea {
+            background-color: rosybrown;
+            color: black;
+        }
+
         .returnButton {
             background-color: #1015BC;
             color: #C6C7D8;
@@ -55,11 +68,12 @@
             <br />
             here is some generic text
             <br />
-            <textarea id="textarea">
-    I forget what this is
-    </textarea>
+            <form method="POST"><textarea class="textarea" id="title" name="title" placeholder="Title"></textarea></form>
+            <form method="POST"><textarea class="textarea" id="description" name="time" placeholder="Time"></textarea></form>
+            <form method="POST"><textarea class="textarea" id="description" name="description" placeholder="Description"></textarea></form>
         </div>
     </div>
-    <form method="post"><button type="submit" button class="returnButton" asp-page="./Index">Return</button></form>
+
+    <form method="POST"><button type="submit" button class="returnButton" asp-page="./Index">Return</button></form>
 </body>
 </html>

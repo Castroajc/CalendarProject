@@ -7,7 +7,7 @@ namespace CalendarDotNet.Model
 {
     interface IDatabase
     {
-        List<Days> AddEvent(int monthId, int dayId, string title, string description, string startTime);
+        void UpdateEvent(int dayId, int monthId, string title, string description, string startTime);
         List<Days> LoadEvent(int monthId);
     }
 }

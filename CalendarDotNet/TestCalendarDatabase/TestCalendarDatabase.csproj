@@ -88,12 +88,6 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CalendarDatabase\CalendarDatabase.sqlproj">
-      <Project>{078c353a-4a77-4088-bcd5-f7f120ab7bbb}</Project>
-      <Name>CalendarDatabase</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

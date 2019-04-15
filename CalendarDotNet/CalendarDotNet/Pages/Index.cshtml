@@ -3,6 +3,7 @@
 @{
     <h2>@ViewData["Title"] Home page</h2>
 }
+@*<p>@Model.Message</p>*@
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,34 +80,59 @@
                 color: #777;
             }
 
-                .days li .active {
-                    padding: 5px;
-                    background: #1abc9c;
-                    color: white !important;
-                }
+
                 .days li .daysButton {
                     width: 100%;
                     height: 150px;
-                    background: #B22222;
+                    background-color: #eee;
+                    border: 2px solid #000;
                 }
     </style>
 </head>
 <body>
+    <script>
+        demoP = document.getElementById("demo");
+        var numbers = [4, 9, 16, 25];
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function myFunction(item, index) {
+            demoP.innerHTML = demoP.innerHTML + "index[" + index + "]: " + item + "<br>";
+        }
+        function increment(integer) {
+            return integer + 1;
+        }
+        function changeNextMonthId(monthId) {
+            if (monthId == 12) {
+                monthId = 1;
+            }
+            else {
+                monthId = monthId + 1;
+            }
+            demoP.innerHTML = demoP.innerHTML + "This is printing out correctly";
+            return monthNames[monthId];
+        }
+    </script>
 
     <h1>Individual Project Calendar</h1>
-
     <div class="month">
         <ul>
-            <li class="prev">&#10094;</li>
-            <li class="next">&#10095;</li>
-            <li>
-                August<br>
+            <li class="prev">
+                <button onclick="changeNextMonthId(@Model.MonthId)">
+                    &#10094;
+                </button>
+            </li>
+            <li class="next">
+                <button onclick="Model.monthId.changeNextMonthId")>&#10095;</button>
+            </li>
+            <li id="monthName">
+                @Model.months.GetMonthName(@Model.MonthId)<br>
                 <span style="font-size:18px">2017</span>
             </li>
         </ul>
     </div>
 
-    <ul class="weekdays">   @*These are the columns of the weekday names*@
+    <ul class="weekdays">
+        @*These are the columns of the weekday names*@
         <li>Mo</li>
         <li>Tu</li>
         <li>We</li>
@@ -116,38 +142,18 @@
         <li>Su</li>
     </ul>
 
+    <p>Click the button to list all the items in the array.</p>
+    <button onclick="numbers.forEach(myFunction)">Try it</button>
+    <p id="demo"></p>
+
+
     <ul class="days">
-        <li><form method="post"><button type="submit" button class="daysButton" asp-page="./EditEvent">1</button></form>@*End of button,still apart of list*@</li>
-        <li><form method="post"><button type="submit" button class="daysButton" asp-page="./EditEvent">2</button></form>@*End of button, still apart of list*@</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li><span class="active">10</span></li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
+        @foreach (CalendarDotNet.Model.Days dayz in Model.daysList)
+        {
+            int dayId = 2;
+            <li><form method="POST"><button type="submit" button class="daysButton" name="dayId" value="@dayId" asp-page="./EditEvent">@dayId <br>@dayz.GetTitle() <br>@dayz.GetDescription()</button></form></li>
+            dayId = dayId + 1;
+        }
     </ul>
 
 </body>

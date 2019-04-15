@@ -24,13 +24,24 @@ namespace CalendarDotNet.Persistence
 
         public static List<Days> GetDays()
         {
-            List<Days> days = new List<Days>
-            {
-                //hard coded values for the days table
-                new Days(0, 1, "Clever Title", "Yo we eating pizza after class?", "3:00pm"),
-                new Days(0, 2, "Moose", "sang", "2:00am")  //
-            };
-
+            int daysMax = 31;
+            List<Days> days = new List<Days>();
+            for (int i = 0; i< 12; i++) {
+                daysMax = DateTime.DaysInMonth(2019, i + 1);
+                for (int j = 1; j <= daysMax; j++) {
+                    if (j == 1) {
+                        days.Add(new Days(i, 1, "Clever Title", "Yo we eating pizza after class?", "3:00pm"));
+                    }
+                    else if(j == 2)
+                    {
+                        days.Add(new Days(i, 2, "Moose", "sang", "2:00am"));
+                    }
+                    else
+                    {
+                        days.Add(new Days(i, j, "", "", ""));
+                    }
+                }
+            }
 
             return days;
         }

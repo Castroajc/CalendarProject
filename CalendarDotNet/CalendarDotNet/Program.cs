@@ -14,6 +14,7 @@ namespace CalendarDotNet
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("WHERE AM I BEING WRITTEN");
             CreateWebHostBuilder(args).Build().Run();
         }
 

@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CalendarDotNet.Model;
 using CalendarDotNet.Controller;
+using RestSharp;
 
 namespace CalendarTests
 {
@@ -48,5 +49,28 @@ namespace CalendarTests
             controller.ChangeToNextMonth();
             Assert.AreEqual(1, model.GetMonth());
         }
+
+        /* testing http api test methods
+        [TestMethod]
+        public void GetWebsiteInfo()
+        {
+            //Creating client connection
+            RestClient restClient = new RestClient("http://localhost:51553");
+
+            //Creating request to get data from server
+            RestRequest restRequest = new RestRequest("Calendar", Method.GET);
+
+            //Executing request to server and checking server response
+            IRestResponse restResponse = restClient.Execute(restRequest);
+
+            //Extracting output data from received response
+            string response = restResponse.Content;
+
+            //Verify response
+            if (!response.Contains("Calendar"))
+            {
+                Assert.Fail("Whether information is not displayed");
+            }
+        } */
     }
 }

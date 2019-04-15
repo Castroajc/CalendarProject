@@ -7,8 +7,8 @@ namespace CalendarDotNet.Model
 {
     public class Days
     {
-        private int monthId;
-        private int dayId;
+        private readonly int monthId;
+        private readonly int dayId;
         private string title;
         private string description;
         private string startTime;
@@ -36,13 +36,25 @@ namespace CalendarDotNet.Model
         {
             return title;
         }
+        public void SetTitle(string title)
+        {
+            this.title = title;
+        }
         public string GetDescription()
         {
             return description;
         }
+        public void SetDescription (string description)
+        {
+            this.description = description;
+        }
         public string GetStartTime()
         {
             return startTime;
+        }
+        public void SetStartTime(string startTime)
+        {
+            this.startTime = startTime;
         }
     }
 }
