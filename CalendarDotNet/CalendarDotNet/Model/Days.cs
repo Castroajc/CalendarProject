@@ -19,7 +19,7 @@ namespace CalendarDotNet.Model
             this.monthId = monthId;
             this.dayId = dayId;
             this.title = title;
-            this.description = title;
+            this.description = description;
             this.startTime = startTime;
         }
 
@@ -39,6 +39,10 @@ namespace CalendarDotNet.Model
         public string GetDescription()
         {
             return description;
+        }
+        public string GetStartTime()
+        {
+            return startTime;
         }
     }
 }
