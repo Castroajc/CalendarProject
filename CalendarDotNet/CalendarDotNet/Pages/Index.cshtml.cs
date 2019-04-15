@@ -15,25 +15,29 @@ namespace CalendarDotNet.Pages
     {
         private FakeDatabase fake;
         public int MonthId { get; set; }
-        public Months months;
+        public Months Months;
         public List<Days> daysList;
 
         public string Message { get; set; }
+        public IndexModel()
+        {
+            Message = "You finally did it, idiot";
+            MonthId = 0;
+            fake = new FakeDatabase();
+            daysList = fake.LoadEvent(MonthId);
+            Months = new Months(0, 2019);
+        }
 
         public void OnGet()
         {
-            Message = "You finally did it, idiot";
-            int monthId = 0;
-            fake = new FakeDatabase();
-            daysList = fake.LoadEvent(monthId);
-            months = new Months(0, 2019);
-            //int monthId = 1;
-            //string title = HttpContext.Session.GetString("title");
-            //string description = HttpContext.Session.GetString("description");
-            //string startTime = HttpContext.Session.GetString("startTime");
-            //int dayId = (int) HttpContext.Session.GetInt32("dayId");
-            //int monthId = (int)HttpContext.Session.GetInt32("monthId");
-            //fake.UpdateEvent(10, monthId, title, description, startTime);
+            
+            
+            /*string title = HttpContext.Session.GetString("title");
+            string description = HttpContext.Session.GetString("description");
+            string startTime = HttpContext.Session.GetString("startTime");
+            int dayId = (int) HttpContext.Session.GetInt32("dayId");
+            monthId = (int)HttpContext.Session.GetInt32("monthId");
+            fake.UpdateEvent(10, monthId, title, description, startTime); */
         }
         public void OnPost()
         {
