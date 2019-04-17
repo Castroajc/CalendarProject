@@ -30,15 +30,18 @@ namespace CalendarDotNet.Persistence
                 daysMax = DateTime.DaysInMonth(2019, i + 1);
                 for (int j = 1; j <= daysMax; j++) {
                     if (j == 1) {
+                        //will add an event in every month on the first day with this data
                         days.Add(new Days(i, 1, "Clever Title", "Yo we eating pizza after class?", "3:00pm"));
                     }
                     else if(j == 2)
                     {
+                        //The second day of everymonth will contain this
                         days.Add(new Days(i, 2, "Moose", "sang", "2:00am"));
                     }
                     else
                     {
-                        days.Add(new Days(i, j, "", "", ""));
+                        //Every other day will contain nothing
+                        days.Add(new Days(i, j, " ", " ", " "));
                     }
                 }
             }

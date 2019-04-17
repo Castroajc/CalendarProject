@@ -9,15 +9,6 @@
 
 <html>
 <head>
-    <script runat="server">
-        void Page_Load()
-        {
-            staticDateTime.Text = DateTime.Now.ToString();
-        }
-        static string CurrentDateTime(HttpContext context){
-            return DateTime.Now.ToString();
-        }
-    </script>
     <style>
         * {
             background-color: rebeccapurple;
@@ -68,12 +59,19 @@
             <br />
             here is some generic text
             <br />
-            <form method="POST"><textarea class="textarea" id="title" name="title" placeholder="Title"></textarea></form>
-            <form method="POST"><textarea class="textarea" id="description" name="time" placeholder="Time"></textarea></form>
-            <form method="POST"><textarea class="textarea" id="description" name="description" placeholder="Description"></textarea></form>
+            @*@Html.TextArea("title", null, new { @class = "form-control"}) *@
+            <form method="get">
+                <textarea class="textarea" id="title" name="title" placeholder="Title"></textarea><br />
+                <textarea class="textarea" id="time" name="time" placeholder="Time"></textarea><br />
+                <textarea class="textarea" id="description" name="description" placeholder="Description"></textarea><br />
+                <input type="submit" value="Submit Event" />
+            </form>
         </div>
     </div>
 
-    <form method="POST"><button type="submit" button class="returnButton" asp-page="./Index">Return</button></form>
+    <form method="get"><button type="submit" button class="returnButton" asp-page="./Index">Return</button></form>
+
+    <h3>@Model.Message </h3>
+    <form method="get"><button class="btn btn-default">Click to post</button></form>
 </body>
 </html>

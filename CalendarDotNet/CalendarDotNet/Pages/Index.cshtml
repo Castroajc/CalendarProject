@@ -2,6 +2,7 @@
 @model IndexModel
 @{
     <h2>@ViewData["Title"] Home page</h2>
+    var dayId = 1;
 }
 @*<p>@Model.Message</p>*@
 <!DOCTYPE html>
@@ -122,7 +123,7 @@
                 </button>
             </li>
             <li class="next">
-                <button onclick="Model.monthId.changeNextMonthId")>&#10095;</button>
+                <button onclick="Model.monthId.changeNextMonthId" )>&#10095;</button>
             </li>
             <li id="monthName">
                 @Model.Months.GetMonthName(@Model.MonthId)<br>
@@ -142,16 +143,11 @@
         <li>Su</li>
     </ul>
 
-    <p>Click the button to list all the items in the array.</p>
-    <button onclick="numbers.forEach(myFunction)">Try it</button>
-    <p id="demo"></p>
-
-
     <ul class="days">
         @foreach (CalendarDotNet.Model.Days dayz in Model.daysList)
         {
-            int dayId = 2;
-            <li><form method="POST"><button type="submit" button class="daysButton" name="dayId" value="@dayId" asp-page="./EditEvent">@dayId <br>@dayz.GetTitle() <br>@dayz.GetDescription()</button></form></li>
+           
+            <li><form method="post"><button type="submit" button class="daysButton" name="dayId" value="@dayId" asp-page="./EditEvent">@dayId <br>@dayz.GetTitle() <br>@dayz.GetDescription()</button></form></li>
             dayId = dayId + 1;
         }
     </ul>

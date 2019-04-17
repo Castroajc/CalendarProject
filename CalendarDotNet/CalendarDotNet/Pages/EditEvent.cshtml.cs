@@ -10,39 +10,47 @@ namespace CalendarDotNet.Pages
 {
     public class EditEventModel : PageModel
     {
+        public string Message { set; get; }
         static string SubstitutionMethod(HttpContext context)
         {
             return "My Content";
         }
-        public void OnGet()
-        {
-            Console.WriteLine("this is some more text");
-        }
+
         public void OnPost()
         {
-            string title = Request.Form["title"];   //grabs the data from the html page
-            Console.WriteLine("this is some text " + title);
+            //Message = "Post Used";
+            //this website actually pulls the OnPost first instead of the OnGet
+            //Putting the OnPost first helps me remember that
+        }
+        public void OnGet()
+        {
+            Message = "Get used";
+            Console.WriteLine("this is some more text");
+            
+            /* session is not able to grab the correct information, it is disabled just to keep the website running
+            string title = (string) Request.Form["title"];   //grabs the data from the html page
             string description = Request.Form["description"];
             string startTime = Request.Form["time"];
-            //for when there is nothing to put inside yet
-            if(title == null)
+
+            Console.WriteLine("this is some text " + title);
+
+            if (title == null)
             {
                 title = "";
             }
-            if(description== null)
+            if (description == null)
             {
                 description = "";
             }
-            if(startTime == null)
+            if (startTime == null)
             {
                 startTime = "";
             }
 
-
-
             HttpContext.Session.SetString("title", title);  //puts the data into the session
             HttpContext.Session.SetString("description", description);
-            HttpContext.Session.SetString("time", startTime);
+            HttpContext.Session.SetString("time", startTime); */
         }
+        
     }
 }

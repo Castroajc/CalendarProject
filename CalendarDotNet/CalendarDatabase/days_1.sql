@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[days]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)

@@ -21,7 +21,7 @@ namespace CalendarDotNet.Pages
         public string Message { get; set; }
         public IndexModel()
         {
-            Message = "You finally did it, idiot";
+            //intializes the variables that need to be set before the get method is called
             MonthId = 0;
             fake = new FakeDatabase();
             daysList = fake.LoadEvent(MonthId);
@@ -30,20 +30,21 @@ namespace CalendarDotNet.Pages
 
         public void OnGet()
         {
-            
-            
-            /*string title = HttpContext.Session.GetString("title");
+            //Message = "Get was called";   used to ensure that the get is called
+
+            //grabs any items in the session with this specific id name
+            string title = HttpContext.Session.GetString("title");
             string description = HttpContext.Session.GetString("description");
             string startTime = HttpContext.Session.GetString("startTime");
-            int dayId = (int) HttpContext.Session.GetInt32("dayId");
-            monthId = (int)HttpContext.Session.GetInt32("monthId");
-            fake.UpdateEvent(10, monthId, title, description, startTime); */
+
+            fake.UpdateEvent(10, MonthId, title, description, startTime); 
         }
         public void OnPost()
         {
-           // HttpContext.Session.SetInt32("monthId", monthId);
-            //string dayId = Request.Form["dayId"];
-            //HttpContext.Session.SetInt32("dayId",System.Convert.ToInt32(dayId));
+            //Message = "Post was called"; //used to ensure the post is called
+            HttpContext.Session.SetInt32("monthId", MonthId);
+            string dayId = Request.Form["dayId"];
+            HttpContext.Session.SetInt32("dayId",System.Convert.ToInt32(dayId));
         }
     }
 }

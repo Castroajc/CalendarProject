@@ -32,6 +32,7 @@ namespace CalendarDotNet.Persistence
             }
             return listOfThisMonth;
         }
+        //since there are always 365 and 1/4 days in a year the amount of days are hardcoded in
         public void UpdateEvent(int dayId, int monthId, string title, string description, string startTime)
         {
             foreach(Days day in daysList)
